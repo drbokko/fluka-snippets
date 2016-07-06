@@ -1,0 +1,43 @@
+TITLE
+
+GLOBAL         5000.
+* Set the defaults for precision simulations
+DEFAULTS                                                              PRECISIO
+* Define the beam characteristics
+BEAM
+* Define the beam position
+BEAMPOS
+GEOBEGIN                                                              COMBNAME
+VOXELS           0.0       0.0       0.0                              target
+    0    0          
+* Void sphere
+SPH void       0.0 0.0 0.0 10000.0
+END
+* Black hole
+BLKBODY      5 +blkbody -void
+* Void around
+VOID         5 +void -VOXEL
+END
+GEOEND
+* ..+....1....+....2....+....3....+....4....+....5....+....6....+....7..
+ASSIGNMA    BLCKHOLE   BLKBODY
+ASSIGNMA      VACUUM      VOID
+* Voxel cage
+ASSIGNMA      VACUUM     VOXEL
+* Voxel cage
+ASSIGNMA      VACUUM  VOXEL001
+* Voxel cage
+ASSIGNMA    HYDROGEN  VOXEL002
+* Voxel cage
+ASSIGNMA      HELIUM  VOXEL003
+* Voxel cage
+ASSIGNMA    BERYLLIU  VOXEL004
+* Voxel cage
+ASSIGNMA      CARBON  VOXEL005
+* Voxel cage
+ASSIGNMA    NITROGEN  VOXEL006
+* Set the random number seed
+RANDOMIZ         1.0
+* Set the number of primary histories to be simulated in the run
+START
+STOP

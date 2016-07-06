@@ -17,9 +17,9 @@
 * - number of bin along X => NX
 * - number of bin along Y => NY
 * - number of bin along Z => NZ
-      PARAMETER ( NX = 100 )
-      PARAMETER ( NY = 100 )
-      PARAMETER ( NZ = 100 )
+      PARAMETER ( NX = 10 )
+      PARAMETER ( NY = 10 )
+      PARAMETER ( NZ = 10 )
 
       DIMENSION MYARRAY(NX,NY,NZ)
       INTEGER*2 MYARRAY
@@ -33,7 +33,7 @@
       DO IC = 1, 1000
          KREG(IC) = 0
       END DO
-      OPEN(UNIT=30,FILE='ascii_file_name.extension',STATUS='OLD')
+      OPEN(UNIT=30,FILE='ascii_file.dat',STATUS='OLD')
       READ(30,*) MYARRAY
       NO=0
       MO=0

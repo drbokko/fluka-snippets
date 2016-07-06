@@ -1,0 +1,113 @@
+#!/usr/local/flair/flair
+# FLUKA Project file
+Version: 2
+Title: 
+Input: voxel.inp
+Submit: *Default
+Tabs: 0.1 0.32 0.56 0.81 1.0
+Page: Geometry
+DefMain: True
+LinkPrg: lfluka
+F77bound: True
+F77dline: False
+
+# Run information
+Run: <default>
+	Prev:     0
+	Last:     5
+	Status:   0
+	Pid:      0
+	StartRun: 0
+End
+
+# Geometry Information
+Geometry:
+	Frame.bsplit: 0.5
+	Frame.tsplit: 0.5
+	Frame.vsplit: 0.5
+
+	# Layer
+	Layer: Media
+		Show._visible: True
+		Show.voxel: 1
+		Show.label: Material
+		layer: Media
+		Options.shortcut: F3
+	End
+
+	# Layer
+	Layer: Borders
+		Show._visible: True
+		Show.voxel: 1
+		layer: Borders
+		Show.color: None
+	End
+End
+
+# Pet
+Pet: pet
+End
+
+# Geometry plot "GeoViewer Red plot"
+Plot: Red
+	Format: .eps
+	Type:   Geometry
+	origin: 0 0 0
+	layer: Media
+	title: GeoViewer Red plot
+	labels: 1
+	coord: X-Y
+	boundaries: 1
+	subtype: Material
+	extends: 5.40879 4.27277
+	basisu: 1 0 0
+	basisv: 0 1 0
+End
+
+# Geometry plot "GeoViewer Green plot"
+Plot: Green
+	Format: .eps
+	Type:   Geometry
+	origin: 0 0 0
+	layer: Media
+	title: GeoViewer Green plot
+	labels: 1
+	coord: Z-X
+	boundaries: 1
+	subtype: Material
+	extends: 1540.7 1217.11
+	basisu: 0 0 1
+	basisv: 1 0 0
+End
+
+# Geometry plot "GeoViewer Blue plot"
+Plot: Blue
+	Format: .eps
+	Type:   Geometry
+	origin: 0 0.0486289 0.0414625
+	layer: 3D
+	title: GeoViewer Blue plot
+	labels: 1
+	coord: U-V
+	boundaries: 1
+	subtype: Material
+	extends: 0.0816453 0.0642413
+	basisu: -0.393192 0.118648 0.911769
+	basisv: 0.522452 0.844828 0.115366
+End
+
+# Geometry plot "GeoViewer Magenta plot"
+Plot: Magenta
+	Format: .eps
+	Type:   Geometry
+	origin: 0 0 0
+	layer: Media
+	title: GeoViewer Magenta plot
+	labels: 1
+	coord: X-Y
+	boundaries: 1
+	subtype: Material
+	extends: 1540.7 1212.28
+	basisu: -1 0 0
+	basisv: 0 1 0
+End
