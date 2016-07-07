@@ -17,9 +17,9 @@
 * - number of bin along X => NX
 * - number of bin along Y => NY
 * - number of bin along Z => NZ
-      PARAMETER ( NX = 10 )
-      PARAMETER ( NY = 10 )
-      PARAMETER ( NZ = 10 )
+      PARAMETER ( NX = 299 )
+      PARAMETER ( NY = 137 )
+      PARAMETER ( NZ = 348 )
 
       DIMENSION MYARRAY(NX,NY,NZ)
       INTEGER*2 MYARRAY
@@ -33,7 +33,7 @@
       DO IC = 1, 1000
          KREG(IC) = 0
       END DO
-      OPEN(UNIT=30,FILE='ascii_file.dat',STATUS='OLD')
+      OPEN(UNIT=30,FILE='AF.dat',STATUS='OLD')
       READ(30,*) MYARRAY
       NO=0
       MO=0
@@ -50,7 +50,7 @@
                   NO=NO+1
                   IREG(NO)=IO
                   KREG(IO)=NO
-                  WRITE(*,'(A,2I10)')' New number, old number: ', NO, IO
+                  WRITE(*,'(A,2I10)')'organ_index, voxel_number', IO, NO
  1000             CONTINUE
                END IF
             END DO
