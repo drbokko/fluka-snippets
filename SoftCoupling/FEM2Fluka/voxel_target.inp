@@ -1,0 +1,43 @@
+* Title card
+TITLE
+Fluka
+DEFAULTS                                                              NEW-DEFA
+* Electromagnetic cutoff
+* ..+....1....+....2....+....3....+....4....+....5....+....6....+....7...
+*EMFCUT        -0.001    0.0001            BLCKHOLE  @LASTMAT          PROD-CUT
+EMFCUT        -0.001    0.0001
+EMF-BIAS       1022.
+* Proton beam impinging on the primary target
+BEAM          -7000.                         -0.12     -.076          PROTON
+BEAMPOS          0.0       0.0      -10.        0.       0.0
+GEOBEGIN                                                              COMBNAME
+VOXELS         -1.55     -2.25      -0.5                              target
+    0    0          FEM2Fluka Test
+* ..+....1....+....2....+....3....+....4....+....5....+....6....+....7...
+* BODIES
+*
+SPH bVoid      0. 0. 0. 9999.
+* - Known world
+SPH bWorld     0. 0. 0. 200.
+END
+* - Region: BlackHole
+rBlkHole     5 +bVoid -bWorld
+* - Region: Ground
+rAir         5 +bWorld -VOXEL
+END
+GEOEND
+* Assign materials to regions
+*
+* - Generic items
+ASSIGNMA    BLCKHOLE  rBlkHole
+ASSIGNMA      VACUUM      rAir
+* - Voxels and air around them
+ASSIGNMA      VACUUM     VOXEL
+ASSIGNMA      VACUUM  VOXEL001
+#include ./target_block.mat
+#include ./target_block.scoring
+FREE
+RANDOMIZ, 1.0, SET_RANDOM_NUMBER
+START,  SET_PARTICLE_NUMBER
+FIXED
+STOP

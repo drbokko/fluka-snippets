@@ -1,0 +1,90 @@
+# FLUKA Project file
+Version: None
+Title: Fluka
+Input: voxel_target.inp
+DefMain: True
+LinkPrg: lfluka
+F77bound: True
+F77dline: False
+Submit: Local
+
+# Run information
+Run: <default>
+Prev:     0
+Last:     5
+Status:   0
+Pid:      0
+StartRun: 0
+
+# USRxxx data file: voxel_target_usrbin_30
+Data:      \I_\T_\U
+Unit:      30
+Type:      b
+Recursive: 0
+Rule:     +,\I\d\d\d_fort\.\U
+Rule:     +,\I\d\d\d_ftn\.\U
+Rule:     +,_\I_\d\d\d\d\d_fort.\U
+EndData
+EndRun
+
+# Run information
+Run: test
+Start:    10
+Prev:     0
+Last:     2
+Status:   5
+Pid:      17310
+StartRun: 1300294261
+
+# USRxxx data file: test_usrbin_30
+Data:      \I_\T_\U
+Unit:      30
+Type:      b
+Recursive: 0
+Rule:     +,\I\d\d\d_fort\.\U
+Rule:     +,\I\d\d\d_ftn\.\U
+Rule:     +,_\I_\d\d\d\d\d_fort.\U
+EndData
+EndRun
+
+# Geometry Information
+Geometry:
+EndGeometry
+
+# USRBIN plot ""
+Plot: voxel_target_plot01
+Format:     .eps
+Type:       USRBIN
+LineType:   
+Keys:       1
+cbround: 1
+cbcpd: 3
+int: 1045.93398
+lt.0: 1
+lw.0: 1
+ls.0: 0
+ymin: -0.05
+cbcolors: 30
+errors: 0
+min: 0.0070889513
+xrebin: 1
+axes: Auto
+cbmax: 2000
+hist: 2D Projection
+proj: Y
+swap: 0
+with.0: steps
+zrebin: 1
+max: 1687.29211
+cbmin: 0.2
+ymax: 0.05
+yrebin: 1
+geo: -No-
+axes.0: x1y1
+ps.0: 1
+datafile: bunch_1/energy_b1
+det: 1
+cbpalette: FLUKA
+pt.0: 1
+log: 1
+EndPlot
